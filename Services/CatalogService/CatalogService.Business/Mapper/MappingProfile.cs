@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CatalogService.Entities.Concrete;
+using CatalogService.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,8 @@ namespace CatalogService.Business.Mapper
             CreateMap<SubCategory, SubCategoryRemoveDTO>().ReverseMap();
             CreateMap<SubCategory, SubCategoryListDTO>().ReverseMap();
 
-            CreateMap<Product, ProductAddDTO>().ReverseMap();
-            CreateMap<Product, ProductGetById>().ReverseMap();
+            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<Product, ProductListDTO>().ReverseMap();
 
         }
     }

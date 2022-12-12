@@ -2,6 +2,7 @@
 using CatalogService.Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static CatalogService.Entities.DTOs.CategoryDTO;
 
 namespace CatalogService.Api.Controllers
 {
@@ -17,23 +18,24 @@ namespace CatalogService.Api.Controllers
         }
         [HttpPost]
         [Route("add")]
-        public IActionResult AddCategory([FromBody] string categoryName)
+       public IActionResult AddCategory(CategoryAddDTO categoryAddDTO)
         {
-            try
+            var result = _categoryService.Add(categoryAddDTO);
+            if (result.Success)
             {
-                Category newCategory = new()
-                {
-                    CategoryName = categoryName
-                };
-                _categoryService.Add(newCategory);
-                return Ok();
-
+                return Ok(result);
             }
-            catch (Exception)
+            return BadRequest(result.Message);
+        }
+        [HttpGet("getall")]
+        public IActionResult GetAllCategories()
+        {
+            var result = _categoryService.GetAll();
+            if (!result.Success)
             {
-
-                return BadRequest();
+                return BadRequest(result.Message);
             }
+            return Ok(result);
         }
     }
 }
