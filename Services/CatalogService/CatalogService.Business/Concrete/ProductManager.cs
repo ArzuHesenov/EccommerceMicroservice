@@ -29,9 +29,9 @@ namespace CatalogService.Business.Concrete
         {
             try
             {
-            var mapper = _mapper.Map<Product>(productAddDTO);
-            _productDal.Add(mapper);
-            return new SuccessResult("Elave olundyu");
+                var mapper = _mapper.Map<Product>(productAddDTO);
+                _productDal.Add(mapper);
+                return new SuccessResult("Elave olundyu");
             }
             catch (Exception e)
             {
@@ -44,13 +44,28 @@ namespace CatalogService.Business.Concrete
             try
             {
                 var data = _productDal.GetAll();
-                var mapperData=_mapper.Map<List<ProductListDTO>>(data);
+                var mapperData = _mapper.Map<List<ProductListDTO>>(data);
                 return new SuccessDataResult<List<ProductListDTO>>(mapperData, "Data geldi");
             }
             catch (Exception e)
             {
                 return new ErrorDataResult<List<ProductListDTO>>(e.Message);
             }
+        }
+
+        public IDataResult<ProductGetByIdDTO> GetProductById(string id)
+        {
+            try
+            {
+                var data = _productDal.Get(x => x.Id == id);
+                var mapper = _mapper.Map<ProductGetByIdDTO>(data);
+                return new SuccessDataResult<ProductGetByIdDTO>(mapper);
+            }
+            catch (Exception e)
+            {
+                return new ErrorDataResult<ProductGetByIdDTO>(e.Message);
+            }
+
         }
     }
 }

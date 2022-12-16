@@ -26,6 +26,7 @@ namespace CatalogService.Business.Mapper
 
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<Product, ProductListDTO>().ReverseMap();
+            CreateMap<Product, ProductGetByIdDTO>().ReverseMap();
 
         }
     }
