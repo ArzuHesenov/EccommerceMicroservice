@@ -39,11 +39,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Api", "Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.Api", "ApiGateway\ApiGateway\ApiGateway.Api\ApiGateway.Api.csproj", "{0C8E9897-658F-4EAF-93A6-EC22DB703238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.DataAccess", "Services\BasketService\BasketService.DataAccess\BasketService.DataAccess.csproj", "{3644EF9A-3711-4654-9B5F-E402B1A9137E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService.DataAccess", "Services\BasketService\BasketService.DataAccess\BasketService.DataAccess.csproj", "{3644EF9A-3711-4654-9B5F-E402B1A9137E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Entities", "Services\BasketService\BasketService.Entities\BasketService.Entities.csproj", "{8CFE6A7E-65C4-4467-819F-E64CDF96F602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService.Entities", "Services\BasketService\BasketService.Entities\BasketService.Entities.csproj", "{8CFE6A7E-65C4-4467-819F-E64CDF96F602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Business", "Services\BasketService\BasketService.Business\BasketService.Business.csproj", "{DCFE3D12-93A4-40B1-B070-E608EF550C6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketService.Business", "Services\BasketService\BasketService.Business\BasketService.Business.csproj", "{DCFE3D12-93A4-40B1-B070-E608EF550C6A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.Business", "Services\IdentityService\IdentityService.Business\IdentityService.Business.csproj", "{8031C99B-B222-449C-B269-31AC72D3992E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.Entities", "Services\IdentityService\IdentityService.Entities\IdentityService.Entities.csproj", "{4A2D4E7F-02A7-4980-AB17-BC4BF531934D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.DataAccess", "Services\IdentityService\IdentityService.DataAccess\IdentityService.DataAccess.csproj", "{203EBAF1-ED2A-4C22-9EF5-7B8E549E26CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Entities", "Services\OrderService\OrderService.Entities\OrderService.Entities.csproj", "{6D3BE15F-EA75-4386-81BC-212BB0B347C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Business", "Services\OrderService\OrderService.Business\OrderService.Business.csproj", "{3DC0CF13-8676-45CE-8EB8-DD74DB113B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.DataAccess", "Services\OrderService\OrderService.DataAccess\OrderService.DataAccess.csproj", "{5F36A02A-6003-4DC8-AA3B-11FB9B599906}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +115,30 @@ Global
 		{DCFE3D12-93A4-40B1-B070-E608EF550C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCFE3D12-93A4-40B1-B070-E608EF550C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCFE3D12-93A4-40B1-B070-E608EF550C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8031C99B-B222-449C-B269-31AC72D3992E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8031C99B-B222-449C-B269-31AC72D3992E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8031C99B-B222-449C-B269-31AC72D3992E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8031C99B-B222-449C-B269-31AC72D3992E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2D4E7F-02A7-4980-AB17-BC4BF531934D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2D4E7F-02A7-4980-AB17-BC4BF531934D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2D4E7F-02A7-4980-AB17-BC4BF531934D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2D4E7F-02A7-4980-AB17-BC4BF531934D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203EBAF1-ED2A-4C22-9EF5-7B8E549E26CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203EBAF1-ED2A-4C22-9EF5-7B8E549E26CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203EBAF1-ED2A-4C22-9EF5-7B8E549E26CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203EBAF1-ED2A-4C22-9EF5-7B8E549E26CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D3BE15F-EA75-4386-81BC-212BB0B347C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D3BE15F-EA75-4386-81BC-212BB0B347C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D3BE15F-EA75-4386-81BC-212BB0B347C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D3BE15F-EA75-4386-81BC-212BB0B347C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC0CF13-8676-45CE-8EB8-DD74DB113B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC0CF13-8676-45CE-8EB8-DD74DB113B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC0CF13-8676-45CE-8EB8-DD74DB113B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC0CF13-8676-45CE-8EB8-DD74DB113B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F36A02A-6003-4DC8-AA3B-11FB9B599906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F36A02A-6003-4DC8-AA3B-11FB9B599906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F36A02A-6003-4DC8-AA3B-11FB9B599906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F36A02A-6003-4DC8-AA3B-11FB9B599906}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +162,12 @@ Global
 		{3644EF9A-3711-4654-9B5F-E402B1A9137E} = {B32AE300-D657-45C4-897A-3E1E4B4F703C}
 		{8CFE6A7E-65C4-4467-819F-E64CDF96F602} = {B32AE300-D657-45C4-897A-3E1E4B4F703C}
 		{DCFE3D12-93A4-40B1-B070-E608EF550C6A} = {B32AE300-D657-45C4-897A-3E1E4B4F703C}
+		{8031C99B-B222-449C-B269-31AC72D3992E} = {9F1C2DF7-CD55-4E26-9AE6-C4A896793F68}
+		{4A2D4E7F-02A7-4980-AB17-BC4BF531934D} = {9F1C2DF7-CD55-4E26-9AE6-C4A896793F68}
+		{203EBAF1-ED2A-4C22-9EF5-7B8E549E26CD} = {9F1C2DF7-CD55-4E26-9AE6-C4A896793F68}
+		{6D3BE15F-EA75-4386-81BC-212BB0B347C9} = {4C15092F-A660-4991-B3CB-FBBEFDA6B0F8}
+		{3DC0CF13-8676-45CE-8EB8-DD74DB113B10} = {4C15092F-A660-4991-B3CB-FBBEFDA6B0F8}
+		{5F36A02A-6003-4DC8-AA3B-11FB9B599906} = {4C15092F-A660-4991-B3CB-FBBEFDA6B0F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {318A773F-BCC2-415B-A7E9-8946BB417492}
