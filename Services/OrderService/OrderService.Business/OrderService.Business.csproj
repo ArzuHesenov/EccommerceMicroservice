@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\..\..\Shared\CorePackage\CorePackage.csproj" />
+    <ProjectReference Include="..\OrderService.DataAccess\OrderService.DataAccess.csproj" />
+    <ProjectReference Include="..\OrderService.Entities\OrderService.Entities.csproj" />
   </ItemGroup>
 
 </Project>

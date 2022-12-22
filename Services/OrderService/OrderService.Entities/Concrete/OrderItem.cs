@@ -10,8 +10,8 @@ namespace OrderService.Entities.Concrete
 {
     public class OrderItem : IEntity
     {
-        public Guid Id { get; set; }
-        public string OrderId { get; set; }
+        public int Id { get; set; }
+        public int OrderId { get; set; }
         public Order Order { get; set; }
         public string UserId { get; set; }
         public User User { get; set; }

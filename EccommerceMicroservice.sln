@@ -51,11 +51,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.Entities", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.DataAccess", "Services\IdentityService\IdentityService.DataAccess\IdentityService.DataAccess.csproj", "{203EBAF1-ED2A-4C22-9EF5-7B8E549E26CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Entities", "Services\OrderService\OrderService.Entities\OrderService.Entities.csproj", "{6D3BE15F-EA75-4386-81BC-212BB0B347C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Entities", "Services\OrderService\OrderService.Entities\OrderService.Entities.csproj", "{6D3BE15F-EA75-4386-81BC-212BB0B347C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Business", "Services\OrderService\OrderService.Business\OrderService.Business.csproj", "{3DC0CF13-8676-45CE-8EB8-DD74DB113B10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Business", "Services\OrderService\OrderService.Business\OrderService.Business.csproj", "{3DC0CF13-8676-45CE-8EB8-DD74DB113B10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.DataAccess", "Services\OrderService\OrderService.DataAccess\OrderService.DataAccess.csproj", "{5F36A02A-6003-4DC8-AA3B-11FB9B599906}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.DataAccess", "Services\OrderService\OrderService.DataAccess\OrderService.DataAccess.csproj", "{5F36A02A-6003-4DC8-AA3B-11FB9B599906}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1820A8C3-4F43-46CC-BF20-B8DFC44B5584}"
+	ProjectSection(SolutionItems) = preProject
+		Ports.txt = Ports.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
