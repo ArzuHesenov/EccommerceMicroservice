@@ -15,7 +15,7 @@ namespace IdentityService.Business.AutoMapper
         public MappingProfile() 
         {
             CreateMap<LoginDTO, User>().ReverseMap();
-            CreateMap<RegisterDTO, User>().ReverseMap();
+            CreateMap<User, RegisterDTO>().ReverseMap();
             CreateMap<UserByEmailDTO, User>().ReverseMap();
         } 
     }

@@ -1,5 +1,9 @@
+using CatalogService.Business.Abstract;
+using CatalogService.Business.Concrete;
 using CatalogService.Business.DependencyResolvers;
 using CatalogService.Business.Extensions;
+using CatalogService.DataAccess.Abstract;
+using CatalogService.DataAccess.Concrete.MongoDb;
 using CorePackage.DataAccess.MongoDB.MongoSettings;
 using Microsoft.Extensions.Options;
 
@@ -12,6 +16,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
 
 
@@ -23,6 +28,11 @@ builder.Services.AddScoped<IDatabaseSettings, DatabaseSettings>(sp =>
 
 builder.Services.AddMapperExtension();
 builder.Services.AddCustomDependencyResolver();
+
+
+
+
+
 
 var app = builder.Build();
 

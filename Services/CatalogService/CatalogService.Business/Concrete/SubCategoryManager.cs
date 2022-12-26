@@ -4,6 +4,7 @@ using CatalogService.DataAccess.Abstract;
 using CatalogService.Entities.Concrete;
 using CatalogService.Entities.DTOs;
 using CorePackage.Helpers.Result.Abstract;
+using CorePackage.Helpers.Result.Concrete;
 using CorePackage.Helpers.Result.Concrete.ErrorResults;
 using CorePackage.Helpers.Result.Concrete.SuccessResults;
 using System;
@@ -19,10 +20,10 @@ namespace CatalogService.Business.Concrete
     {
         private readonly ISubCategoryDal _subCategoryDal;
         private readonly IMapper _mapper;
-
-        public SubCategoryManager(ISubCategoryDal subCategoryDal)
+        public SubCategoryManager(ISubCategoryDal subCategoryDal, IMapper mapper)
         {
             _subCategoryDal = subCategoryDal;
+            _mapper = mapper;
         }
 
         public IResult Add(SubCategoryAddDTO subCategory)
@@ -35,8 +36,7 @@ namespace CatalogService.Business.Concrete
             }
             catch (Exception)
             {
-
-                return new ErrorResult("Error!");
+                return new ErrorResult("Error oldu.");
             }
         }
 
@@ -45,14 +45,13 @@ namespace CatalogService.Business.Concrete
             try
             {
                 var data = _subCategoryDal.GetAll();
-                var result=_mapper.Map<List<SubCategoryListDTO>>(data);
+                var result = _mapper.Map<List<SubCategoryListDTO>>(data);
 
-                return new SuccessDataResult<List<SubCategoryListDTO>>(result); 
+                return new SuccessDataResult<List<SubCategoryListDTO>>(result);
             }
             catch (Exception)
             {
-
-                return new ErrorDataResult<List<SubCategoryListDTO>>("Error!");
+                return new ErrorDataResult<List<SubCategoryListDTO>>("Error oldu.");
             }
         }
     }

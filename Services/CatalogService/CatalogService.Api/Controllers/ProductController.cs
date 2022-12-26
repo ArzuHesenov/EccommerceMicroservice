@@ -29,7 +29,7 @@ namespace CatalogService.Api.Controllers
         [HttpPost("add")]
         public IActionResult Add(ProductDTO productDTO)
         {
-            var result=_productService.AddProduct(productDTO);
+            var result = _productService.AddProduct(productDTO);
             if (!result.Success)
             {
                 return BadRequest(result.Message);
@@ -41,11 +41,11 @@ namespace CatalogService.Api.Controllers
         public IActionResult GetById(string productGetById)
         {
             var result = _productService.GetProductById(productGetById);
-            if(!result.Success)
+            if (!result.Success)
             {
                 return BadRequest(result.Message);
             }
-             return Ok(result);
+            return Ok(result);
         }
     }
 }

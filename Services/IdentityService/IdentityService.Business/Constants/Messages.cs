@@ -1,4 +1,4 @@
-namespace SocialNetwork.Business.Constants
+namespace IdentityService.Business.Constants
 {
     public static class Messages
     {

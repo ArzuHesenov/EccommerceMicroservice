@@ -16,8 +16,7 @@ namespace CatalogService.Business.Extensions
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
-            }
-           );
+            });
             IMapper mapper = mapperConfig.CreateMapper();
 
             services.AddSingleton(mapper);

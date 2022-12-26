@@ -43,7 +43,6 @@ namespace OrderService.Business.Concrete
                 return new ErrorResult(e.Message);
             }
         }
-
         public IDataResult<OrderListDTO> GetOrderByUserId(string userId)
         {
             try

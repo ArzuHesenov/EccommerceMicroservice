@@ -17,6 +17,11 @@ namespace BasketService.Business.Concrete
     {
         private readonly IBasketDal _basketDal;
 
+        public BasketManager(IBasketDal basketDal)
+        {
+            _basketDal = basketDal;
+        }
+
         public IResult AddBasket(BasketAddDTO basketAddDTO)
         {
             try

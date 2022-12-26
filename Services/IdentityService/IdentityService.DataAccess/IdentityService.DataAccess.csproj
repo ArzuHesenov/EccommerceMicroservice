@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\CorePackage\CorePackage.csproj" />
     <ProjectReference Include="..\..\OrderService\OrderService.Entities\OrderService.Entities.csproj" />
+    <ProjectReference Include="..\IdentityService.Entities\IdentityService.Entities.csproj" />
   </ItemGroup>
 
 </Project>

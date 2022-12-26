@@ -20,9 +20,9 @@ namespace OrderService.Api.Controllers
             _orderItemService = orderItemService;
         }
         [HttpPost("addorder")]
-        public IActionResult AddOrder(ICollection<OrderItemDTO> orderItemDTO ) 
+        public IActionResult AddOrder(List<OrderItemDTO> orderItemDTO ) 
         {
-            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer", "");
+            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
             var handler = new JwtSecurityTokenHandler();
             var jwtSecurityToken = handler.ReadJwtToken(_bearer_token);
             var id = jwtSecurityToken.Claims.FirstOrDefault(x => x.Type == "nameid").Value;
@@ -33,9 +33,10 @@ namespace OrderService.Api.Controllers
             }
             return Ok(result);
         }
+        [HttpGet("getorder")]
         public IActionResult GetOrder()
         {
-            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer", "");
+            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
             var handler = new JwtSecurityTokenHandler();
             var jwtSecurityToken = handler.ReadJwtToken(_bearer_token);
             var id = jwtSecurityToken.Claims.FirstOrDefault(x => x.Type == "nameid").Value;

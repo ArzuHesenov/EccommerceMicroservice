@@ -10,6 +10,6 @@ namespace OrderService.Entities.DTOs
     {
         public int Id { get; set; }
         public string UserId { get; set; }
-        public ICollection<OrderItemDTO> OrderItems { get; set; }
+        public List<OrderItemDTO> OrderItems { get; set; }
     }
 }

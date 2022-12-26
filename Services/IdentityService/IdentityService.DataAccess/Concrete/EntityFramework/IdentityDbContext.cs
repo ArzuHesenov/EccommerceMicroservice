@@ -13,7 +13,8 @@ namespace IdentityService.DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-8BCT0DK;initial catalog=EccommerceIdentityDB;Trusted_connection=true;MultipleActiveResultSets=true; TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-8BCT0DK;initial catalog=EcommerceIdentityDB;Trusted_connection=true;MultipleActiveResultSets=true; TrustServerCertificate=True;"/*,*/
+                /*options => options.EnableRetryOnFailure()*/);
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }

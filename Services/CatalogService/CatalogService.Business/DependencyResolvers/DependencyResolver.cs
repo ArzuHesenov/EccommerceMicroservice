@@ -15,14 +15,14 @@ namespace CatalogService.Business.DependencyResolvers
     {
         public static IServiceCollection AddCustomDependencyResolver(this IServiceCollection services)
         {
-            services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<ICategoryDal, CategoryDal>();
+            services.AddScoped<ICategoryService, CategoryManager>();
 
-            services.AddScoped<ISubCategoryService, SubCategoryManager>();
             services.AddScoped<ISubCategoryDal, SubCategoryDal>();
+            services.AddScoped<ISubCategoryService, SubCategoryManager>();
 
-            services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, ProductDal>();
+            services.AddScoped<IProductService, ProductManager>();
 
             return services;
         }

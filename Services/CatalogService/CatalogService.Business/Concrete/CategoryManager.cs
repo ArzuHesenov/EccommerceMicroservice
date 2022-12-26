@@ -20,7 +20,6 @@ namespace CatalogService.Business.Concrete
         private readonly ICategoryDal _categoryDal;
         private readonly IMapper _mapper;
         private readonly ISubCategoryService _subCategoryService;
-
         public CategoryManager(ICategoryDal categoryDal, IMapper mapper, ISubCategoryService subCategoryService)
         {
             _categoryDal = categoryDal;
@@ -32,9 +31,11 @@ namespace CatalogService.Business.Concrete
         {
             try
             {
-                var mapper = _mapper.Map<Category>(category);
-                _categoryDal.Add(mapper);
-                return new SuccessResult("Elave olundu");
+                var mapResult = _mapper.Map<Category>(category);
+                _categoryDal.Add(mapResult);
+
+                return new SuccessResult("Elave olundu.");
+
             }
             catch (Exception e)
             {
@@ -47,31 +48,29 @@ namespace CatalogService.Business.Concrete
         {
             try
             {
-                 var data = _categoryDal.GetAll();
+                var data = _categoryDal.GetAll();
                 var subCategories = _subCategoryService.GetAllSubCategories();
-                var mapData=_mapper.Map<CategoryListDTO>(data);
+                var mapData = _mapper.Map<List<CategoryListDTO>>(data);
                 List<CategoryListDTO> result = new();
                 foreach (var category in data)
                 {
-                    List<string> subList = new();
+                    List<string> subsList = new();
                     var res = subCategories.Data.Where(x => category.SubCategoryId.Contains(x.Id)).ToList();
 
                     CategoryListDTO newList = new()
                     {
                         CategoryName = category.CategoryName,
-                        SubCategoryName = res.Select(res => res.SubCategoryName).ToList()
+                        SubCategoryName = res.Select(x => x.SubCategoryName).ToList()
                     };
+
                     result.Add(newList);
                 }
                 return new SuccessDataResult<List<CategoryListDTO>>(result, "Data geldi");
-
             }
             catch (Exception e)
             {
-
                 return new ErrorDataResult<List<CategoryListDTO>>(e.Message);
             }
-            
         }
     }
 }

@@ -5,11 +5,6 @@ using OrderService.Business.Abstract;
 using OrderService.DataAccess.Abstract;
 using OrderService.Entities.Concrete;
 using OrderService.Entities.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderService.Business.Concrete
 {
@@ -23,13 +18,12 @@ namespace OrderService.Business.Concrete
             _orderDal = orderDal;
             _orderService = orderService;
         }
-
-        public IDataResult<ICollection<OrderItemDTO>> Add(ICollection<OrderItemDTO> orderItemDTO, string userId)
+        public IDataResult<List<OrderItemDTO>> Add(List<OrderItemDTO> orderItemDTO, string userId)
         {
             try
             {
                 var result = _orderService.GetOrderByUserId(userId);
-                if (result.Data==null)
+                if (result.Data == null)
                 {
                     OrderAddDTO orderAddDTO = new()
                     {
@@ -41,6 +35,7 @@ namespace OrderService.Business.Concrete
                 {
                     OrderItem orderItem = new()
                     {
+                        ProductId = item.ProductId,
                         ProductName = item.ProductName,
                         PhotoUrl = item.PhotoUrl,
                         Price = item.Price,
@@ -49,27 +44,13 @@ namespace OrderService.Business.Concrete
                     };
                     _orderDal.Add(orderItem);
                 }
-                return new SuccessDataResult<ICollection<OrderItemDTO>>(orderItemDTO);
+                return new SuccessDataResult<List<OrderItemDTO>>(orderItemDTO);
             }
             catch (Exception e)
             {
-                return new ErrorDataResult<ICollection<OrderItemDTO>>(e.Message);
+                return new ErrorDataResult<List<OrderItemDTO>>(e.Message);
             }
         }
-
-        public IDataResult<ICollection<OrderItemDTO>> GetByUserId(string userId)
-        {
-            try
-            {
-            var result = _orderDal.Get(x => x.UserId == userId);
-                return new SuccessDataResult<ICollection<OrderItemDTO>>(result);
-            }
-            catch (Exception e)
-            {
-                return new ErrorDataResult<ICollection<OrderItemDTO>>(e.Message);
-            }
-        }
-
         public IResult RemoveOrderItem(int itemId)
         {
             try
@@ -86,6 +67,10 @@ namespace OrderService.Business.Concrete
             {
                 return new ErrorResult(e.Message);
             }
+        }
+        IDataResult<List<OrderItemDTO>> IOrderItemService.GetByUserId(string userId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

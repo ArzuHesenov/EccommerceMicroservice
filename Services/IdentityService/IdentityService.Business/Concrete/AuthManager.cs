@@ -6,9 +6,9 @@ using CorePackage.Helpers.Result.Concrete.SuccessResults;
 using CorePackage.Security.Hashing;
 using CorePackage.Security.Jwt;
 using IdentityService.Business.Abstract;
+using IdentityService.Business.Constants;
 using IdentityService.DataAccess.Abstract;
 using IdentityService.Entities.DTO;
-using SocialNetwork.Business.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,9 +73,7 @@ namespace IdentityService.Business.Concrete
             {
                 var findUserByEmail = _userService.GetUserByEmail(register.Email);
                 if (findUserByEmail.Success)
-                {
                     return new ErrorResult(Messages.UserExists);
-                }
                 byte[] passwordHash, passwordSalt;
                 var model = _mapper.Map<User>(register);
                 HashingHelper.HashPassword(register.Password, out passwordHash, out passwordSalt);
@@ -87,7 +85,6 @@ namespace IdentityService.Business.Concrete
             }
             catch (Exception e)
             {
-
                 return new ErrorResult(e.Message);
             }
         }

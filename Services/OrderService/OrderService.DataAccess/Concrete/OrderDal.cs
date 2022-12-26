@@ -25,7 +25,6 @@ namespace OrderService.DataAccess.Concrete
                 {
                     OrderItemDTO orderItemDTO = new()
                     {
-                        OrderId = item.OrderId,
                         ProductName = item.ProductName,
                         Price = item.Price,
                         PhotoUrl = item.PhotoUrl,

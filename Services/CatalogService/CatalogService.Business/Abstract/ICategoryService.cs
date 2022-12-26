@@ -1,5 +1,4 @@
-﻿using CatalogService.Entities.Concrete;
-using CatalogService.Entities.DTOs;
+﻿using CatalogService.Entities.DTOs;
 using CorePackage.Helpers.Result.Abstract;
 using System;
 using System.Collections.Generic;

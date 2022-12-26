@@ -10,8 +10,8 @@ namespace OrderService.Business.Abstract
 {
     public interface IOrderItemService
     {
-        IDataResult<ICollection<OrderItemDTO>> Add(ICollection<OrderItemDTO> orderItemDTO, string userId);
-        IDataResult<ICollection<OrderItemDTO>> GetByUserId(string userId);
+        IDataResult<List<OrderItemDTO>> Add(List<OrderItemDTO> orderItemDTO, string userId);
+        IDataResult<List<OrderItemDTO>> GetByUserId(string userId);
         IResult RemoveOrderItem(int itemId);
     }
 }

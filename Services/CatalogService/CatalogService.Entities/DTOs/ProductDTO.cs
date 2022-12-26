@@ -16,8 +16,6 @@ namespace CatalogService.Entities.DTOs
         public List<FeatureDTO> Features { get; set; }
         public List<string> PhotoUrl { get; set; }
 
-        //public record ProductAddDTO(string Name,decimal Price,string Description,string SubCategoryId,List<FeatureDTO> Features);
-        //public record ProductGetById(string Name,decimal Price,string Description,string SubCategoryName,List<FeatureDTO> Features);
-
+       
     }
 }

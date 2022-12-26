@@ -2,7 +2,6 @@
 using CatalogService.Entities.Concrete;
 using CorePackage.DataAccess.MongoDB;
 using CorePackage.DataAccess.MongoDB.MongoSettings;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -11,14 +11,13 @@ namespace OrderService.Entities.Concrete
     public class OrderItem : IEntity
     {
         public int Id { get; set; }
-        public int OrderId { get; set; }
-        public Order Order { get; set; }
-        public string UserId { get; set; }
-        public User User { get; set; }
-        public DateTime CreateAd { get; set; }
+        public string ProductId { get; set; }
         public string ProductName { get; set; }
+        public DateTime CreateAd { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public string PhotoUrl { get; set; }
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
     }
 }

@@ -1,8 +1,12 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
+using IdentityService.Business.Abstract;
 using IdentityService.Business.Autofac;
 using IdentityService.Business.AutoMapper;
+using IdentityService.Business.Concrete;
+using IdentityService.DataAccess.Abstract;
+using IdentityService.DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -10,12 +14,37 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddScoped<IUserDal, UserDal>();
+builder.Services.AddScoped<IUserService, UserManager>();
+
+builder.Services.AddScoped<IAuthService, AuthManager>();
+
+builder.Services.AddScoped<IdentityDbContext>();
+
+
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacBusinessModule()));
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+
+
+
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+}
+);
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
 
 
 builder.Services.AddAuthentication(x =>
@@ -41,19 +70,6 @@ builder.Services.AddAuthentication(x =>
 });
 
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-
-var mapperConfig = new MapperConfiguration(mc =>
-{
-    mc.AddProfile(new MappingProfile());
-}
-);
-
-IMapper mapper = mapperConfig.CreateMapper();
-builder.Services.AddSingleton(mapper);
 
 
 var app = builder.Build();

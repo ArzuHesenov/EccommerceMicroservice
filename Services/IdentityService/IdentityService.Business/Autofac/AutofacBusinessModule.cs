@@ -16,6 +16,7 @@ namespace IdentityService.Business.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<IdentityDbContext>();
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<UserDal>().As<IUserDal>();
             builder.RegisterType<AuthManager>().As<IAuthService>();

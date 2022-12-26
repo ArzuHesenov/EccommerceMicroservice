@@ -15,25 +15,28 @@ namespace CatalogService.Api.Controllers
         {
             _subCategoryService = subCategoryService;
         }
+
         [HttpGet("getall")]
         public IActionResult Get()
         {
             var subcategories = _subCategoryService.GetAllSubCategories();
-            if(!subcategories.Success)
+
+            if (!subcategories.Success)
             {
-                return Ok(subcategories.Message);
+                return BadRequest(subcategories.Message);
             }
-            return Ok(subcategories.Message);
+            return Ok(subcategories);
         }
+
         [HttpPost("add")]
         public IActionResult Add(SubCategoryAddDTO subCategory)
         {
-            var newSubCategory = _subCategoryService.Add(subCategory);
-            if (!newSubCategory.Success)
+            var newSubcategory = _subCategoryService.Add(subCategory);
+            if (!newSubcategory.Success)
             {
-                return Ok(newSubCategory.Message);
+                return BadRequest(newSubcategory.Message);
             }
-            return Ok(newSubCategory.Message);
+            return Ok(newSubcategory.Message);
         }
     }
 }

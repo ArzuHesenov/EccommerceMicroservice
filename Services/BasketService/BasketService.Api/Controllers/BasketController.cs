@@ -22,7 +22,7 @@ namespace BasketService.Api.Controllers
         [HttpPost("addtocart")]
         public IActionResult AddToCard(List<BasketItemDTO> basketItem)
         {
-            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer", "");
+            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
             var handler = new JwtSecurityTokenHandler();
             var jwtSecurityToken = handler.ReadJwtToken(_bearer_token);
             var id = jwtSecurityToken.Claims.FirstOrDefault(x => x.Type == "nameid").Value;
@@ -37,13 +37,13 @@ namespace BasketService.Api.Controllers
         [HttpGet("getbasket")]
         public IActionResult GetBasket()
         {
-            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer", "");
+            var _bearer_token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
             var handler = new JwtSecurityTokenHandler();
             var jwtSecurityToken = handler.ReadJwtToken(_bearer_token);
             var id = jwtSecurityToken.Claims.FirstOrDefault(x => x.Type == "nameid").Value;
 
             var result = _basketService.GetBasketByUserId(id);
-            if(!result.Success)
+            if (!result.Success)
             {
                 return BadRequest(result.Message);
             }

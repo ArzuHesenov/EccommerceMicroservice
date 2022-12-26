@@ -27,7 +27,8 @@ namespace CatalogService.Api.Controllers
             }
             return BadRequest(result.Message);
         }
-        [HttpGet("getall")]
+        [HttpGet]
+        [Route("getall")]
         public IActionResult GetAllCategories()
         {
             var result = _categoryService.GetAll();
